@@ -1,0 +1,225 @@
+/* ==========================================================================
+   ABOUT ME SECTION - CUSTOM MANAGEMENT & LAYOUT
+   ========================================================================== */
+:root {
+  /* --- 📐 About Section Sizing --- */
+  --about-padding-y: 100px;
+  --about-gap: 50px;
+  
+  /* --- 🌌 About Parallax Background & Overlay Settings --- */
+  --about-bg-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1920');
+  --about-dim-opacity: 0.25;          /* Background dim depth */
+  --about-edge-shadow-height: 150px;  /* Height of the top/bottom gradient fade zones */
+
+  /* --- 📦 Content Platform Card Settings --- */
+  --about-card-bg: rgba(14, 14, 14, 0.75);       /* Deep, solid-matching dark card */
+  --about-card-border: rgba(255, 255, 255, 0.06); 
+  --about-card-radius: 24px;                      
+  --about-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); 
+  --about-card-padding: 60px 50px;
+
+  /* --- 🖼️ Arch Frame Customization --- */
+  --about-img-path: url('Oriola.png');
+  --arch-width: 360px;
+  --arch-height: 480px;
+  --arch-radius: 180px 180px 16px 16px;
+  --arch-bg: #181818;
+  
+  /* --- 🎨 Text & Accent Colors --- */
+  --about-title-color: #FFFFFF;
+  --about-subtitle-color: #8C8C8C;
+  --about-text-color: #B0B0B0;
+  --about-btn-bg: #FD6F00;
+  --about-btn-hover: #E06200;
+}
+
+.about-section {
+  position: relative;
+  /* Extra bottom padding ensures the background matrix extends far below the card for the gradient */
+  padding: var(--about-padding-y) 8% calc(var(--about-padding-y) + var(--about-edge-shadow-height)) 8%;
+  background-image: var(--about-bg-image);
+  background-attachment: fixed; /* Parallax scrolling effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* Base dim layer for the background */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--about-dim-opacity));
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 🌑 Top & Bottom Edge Gradient Shadows (Fades nicely into solid background at both ends) */
+.about-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(to bottom, #0E0E0E 0%, rgba(14, 14, 14, 0) var(--about-edge-shadow-height)),
+    linear-gradient(to top, #0E0E0E 0%, rgba(14, 14, 14, 0) var(--about-edge-shadow-height));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Content Platform (Card Container) */
+.about-platform {
+  position: relative;
+  background-color: var(--about-card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--about-card-border);
+  border-radius: var(--about-card-radius);
+  padding: var(--about-card-padding);
+  max-width: 1150px;
+  width: 100%;
+  box-shadow: var(--about-card-shadow);
+  z-index: 3; /* Keeps the card above the background gradients */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px; /* Space between the bottom of the card and the section edge */
+}
+
+.about-header {
+  position: relative;
+  text-align: center;
+  max-width: 650px;
+  margin-bottom: 50px;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--about-title-color);
+  margin-bottom: 10px;
+}
+
+.about-subtitle {
+  font-size: 0.95rem;
+  color: var(--about-subtitle-color);
+  letter-spacing: 0.5px;
+}
+
+/* Two Column Layout */
+.about-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--about-gap);
+  width: 100%;
+}
+
+/* Arch Image Frame */
+.about-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-arch-frame {
+  width: var(--arch-width);
+  height: var(--arch-height);
+  background-color: var(--arch-bg);
+  border-radius: var(--arch-radius);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.about-profile-image {
+  width: 100%;
+  height: 100%;
+  background-image: var(--about-img-path);
+  background-size: cover;
+  background-position: center top;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.about-arch-frame:hover .about-profile-image {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+/* Content Column */
+.about-content {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-description {
+  font-size: 0.95rem;
+  color: var(--about-text-color);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Download CV Orange Button */
+.about-action {
+  margin-top: 15px;
+}
+
+.about-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--about-btn-bg);
+  color: #FFFFFF;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(253, 111, 0, 0.3);
+}
+
+.about-cv-btn:hover {
+  background-color: var(--about-btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 111, 0, 0.45);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .about-platform {
+    padding: 40px 20px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-description {
+    text-align: center;
+  }
+
+  .about-arch-frame {
+    width: 290px;
+    height: 390px;
+  }
+}

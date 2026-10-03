@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0e0e0e">
+  <title>Contact Manager - Oriola</title>
+  <link rel="icon" type="image/png" href="Oriola-favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <a class="admin-brand" href="admin.html" aria-label="Admin dashboard">
+        <img src="Oriola.png" alt="" class="logo-avatar">
+        <span><strong>Oriola</strong><small>ADMIN PANEL</small></span>
+      </a>
+      <nav class="admin-sidebar-nav" aria-label="Admin navigation">
+        <button class="sidebar-tab active" type="button" data-view="dashboardView" aria-current="page">
+          <i class="fas fa-chart-pie" aria-hidden="true"></i><span>Dashboard</span>
+        </button>
+        <button class="sidebar-tab" type="button" data-view="contactsView">
+          <i class="fas fa-address-book" aria-hidden="true"></i><span>Contact Manager</span>
+        </button>
+        <a class="sidebar-tab sidebar-logout" href="index.html#home">
+          <i class="fas fa-right-from-bracket" aria-hidden="true"></i><span>Log out</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">Contact Manager</div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <span class="admin-eyebrow">ADMINISTRATION</span>
+          <h1 id="adminPageTitle">Dashboard</h1>
+        </div>
+        <span class="admin-topbar-badge"><i class="fas fa-circle" aria-hidden="true"></i> Local workspace</span>
+      </header>
+
+      <section class="admin-view dashboard-view" id="dashboardView" aria-labelledby="dashboardHeading">
+        <div class="admin-heading">
+          <div>
+            <h2 id="dashboardHeading">Welcome to your dashboard</h2>
+            <p>Here’s an overview of the contacts in your organizer.</p>
+          </div>
+          <button class="admin-button admin-button-primary" type="button" data-open-contacts>
+            <i class="fas fa-user-plus" aria-hidden="true"></i> Manage contacts
+          </button>
+        </div>
+
+        <div class="dashboard-stats">
+          <article class="dashboard-stat-card">
+            <span class="stat-icon"><i class="fas fa-users" aria-hidden="true"></i></span>
+            <span class="stat-label">Total contacts</span>
+            <strong id="dashboardTotal">0</strong>
+            <span class="stat-caption">Saved in your organizer</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-icon"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i></span>
+            <span class="stat-label">Recently added</span>
+            <strong id="dashboardRecentCount">0</strong>
+            <span class="stat-caption">Latest contacts listed below</span>
+          </article>
+          <article class="dashboard-stat-card">
+            <span class="stat-icon"><i class="fas fa-inbox" aria-hidden="true"></i></span>
+            <span class="stat-label">Website messages</span>
+            <strong id="dashboardMessageTotal">0</strong>
+            <span class="stat-caption">Saved contact form submissions</span>
+          </article>
+        </div>
+
+        <section class="admin-panel dashboard-recent-panel" aria-labelledby="recentContactsHeading">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-kicker">LATEST ACTIVITY</span>
+              <h2 id="recentContactsHeading">Recent contacts</h2>
+            </div>
+            <button class="text-action" type="button" data-open-contacts>View all contacts <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+          </div>
+          <div id="dashboardRecentList" class="dashboard-recent-list" aria-live="polite"></div>
+        </section>
+        <p class="admin-notice">
+          <i class="fas fa-circle-info" aria-hidden="true"></i>
+          Contacts are saved in this browser only. There is no sign-in or server sync; do not store sensitive information here.
+        </p>
+      </section>
+
+      <section class="admin-view contacts-view" id="contactsView" aria-labelledby="contactsPageHeading" hidden>
+        <section class="admin-heading">
+          <div>
+            <span class="admin-eyebrow"><i class="fas fa-address-book" aria-hidden="true"></i> CONTACT ORGANIZER</span>
+            <h2 id="contactsPageHeading">Contact Manager</h2>
+            <p>Create, search, and manage your contacts in one place.</p>
+          </div>
+          <div class="contact-count" aria-live="polite">
+            <span id="contactCount">0</span>
+            <span id="contactCountLabel">contacts</span>
+          </div>
+        </section>
+
+        <div class="admin-layout">
+          <section class="admin-panel contact-form-panel" aria-labelledby="formTitle">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">CONTACT DETAILS</span>
+                <h2 id="formTitle">Add a contact</h2>
+              </div>
+              <span class="panel-icon"><i class="fas fa-user-plus" aria-hidden="true"></i></span>
+            </div>
+
+            <form id="contactManagerForm">
+              <label class="admin-field">
+                <span>Full name <span class="required-mark">*</span></span>
+                <input id="managerName" name="name" type="text" autocomplete="name" maxlength="100" placeholder="e.g. Jordan Lee" required>
+              </label>
+              <label class="admin-field">
+                <span>Email address <span class="required-mark">*</span></span>
+                <input id="managerEmail" name="email" type="email" autocomplete="email" maxlength="254" placeholder="name@example.com" required>
+              </label>
+              <label class="admin-field">
+                <span>Phone number</span>
+                <input id="managerPhone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="+63 912 345 6789">
+              </label>
+              <label class="admin-field">
+                <span>Company</span>
+                <input id="managerCompany" name="company" type="text" autocomplete="organization" maxlength="100" placeholder="Company or organization">
+              </label>
+              <label class="admin-field">
+                <span>Notes</span>
+                <textarea id="managerNotes" name="notes" rows="4" maxlength="1000" placeholder="Add a note about this contact"></textarea>
+              </label>
+              <div class="form-actions">
+                <button class="admin-button admin-button-primary" type="submit" id="saveContactButton">
+                  <i class="fas fa-plus" aria-hidden="true"></i> Add contact
+                </button>
+                <button class="admin-button admin-button-secondary" type="button" id="cancelEditButton" hidden>Cancel</button>
+              </div>
+              <p class="admin-status" id="managerStatus" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="admin-panel contacts-panel" aria-labelledby="savedContactsHeading">
+            <div class="panel-heading contacts-heading">
+              <div>
+                <span class="panel-kicker">YOUR DIRECTORY</span>
+                <h2 id="savedContactsHeading">Saved contacts</h2>
+              </div>
+              <label class="contact-search">
+                <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                <span class="visually-hidden">Search contacts</span>
+                <input type="search" id="contactSearch" placeholder="Search contacts..." autocomplete="off">
+              </label>
+            </div>
+            <div class="contact-list" id="contactList" aria-live="polite"></div>
+          </section>
+        </div>
+
+        <section class="admin-panel messages-panel" aria-labelledby="messagesHeading">
+          <div class="panel-heading contacts-heading">
+            <div>
+              <span class="panel-kicker">FROM YOUR PORTFOLIO</span>
+              <h2 id="messagesHeading">Website contact messages</h2>
+              <p class="panel-description">Submissions from the Contact section on your home page.</p>
+            </div>
+            <label class="contact-search">
+              <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+              <span class="visually-hidden">Search website messages</span>
+              <input type="search" id="messageSearch" placeholder="Search messages..." autocomplete="off">
+            </label>
+          </div>
+          <p class="message-storage-note"><i class="fas fa-circle-info" aria-hidden="true"></i> Messages are stored in this browser only.</p>
+          <div class="message-list" id="messageList" aria-live="polite"></div>
+          <p class="admin-status message-status" id="messageStatus" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

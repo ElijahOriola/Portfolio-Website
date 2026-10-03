@@ -1,0 +1,449 @@
+/* ==========================================================================
+   Full-Screen Transition Fade Overlay
+   ========================================================================== */
+.screen-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.screen-transition-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Workspace Management */
+.main-website-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.main-website-wrapper.hidden {
+  display: none;
+}
+
+.resume-workspace {
+  display: none;
+  padding: 0 8% 80px 8%;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resume-workspace.active {
+  display: flex;
+}
+
+/* Resume Workspace Navigation Bar Styling (Identical to Home Navbar) */
+.resume-workspace-navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure Resume Tab Highlights properly inside Workspace Navbar */
+.resume-workspace-navbar .nav-tabs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.resume-workspace-navbar .nav-tabs a:hover {
+  color: var(--accent-color);
+}
+
+.resume-workspace-navbar .nav-tabs a.active {
+  color: var(--accent-color) !important;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ==========================================================================
+   Dedicated Resume Space Styling
+   ========================================================================== */
+.resume-space-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.resume-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: rgba(253, 111, 0, 0.12);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.resume-main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.resume-main-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+/* Resume Card Container (Two Columns layout inspired by sample) */
+.resume-card-container {
+  display: flex;
+  width: 100%;
+  max-width: 1050px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Sidebar Column */
+.resume-sidebar {
+  width: 320px;
+  background-color: #121212;
+  border-right: 1px solid var(--border-color);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.resume-avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.resume-avatar-img {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-color);
+  background-image: var(--img-path);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 20px rgba(253, 111, 0, 0.2);
+}
+
+.resume-profile-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.side-block-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.side-block-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.resume-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resume-contact-list li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  word-break: break-word;
+}
+
+.resume-contact-list i {
+  color: var(--accent-color);
+  width: 16px;
+  text-align: center;
+}
+
+.resume-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resume-bullet-list li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 15px;
+}
+
+.resume-bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.reference-item {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.reference-item strong {
+  color: var(--text-main);
+}
+
+/* Main Content Column */
+.resume-main-content {
+  flex: 1;
+  padding: 45px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  background-color: var(--card-bg);
+}
+
+.resume-header-banner {
+  background: linear-gradient(135deg, #1f1f1f 0%, #151515 100%);
+  padding: 25px 30px;
+  border-radius: 10px;
+  border-left: 5px solid var(--accent-color);
+}
+
+.candidate-fullname {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+
+.candidate-role {
+  font-size: 0.95rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+.resume-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.block-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.block-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.block-heading h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 1px;
+}
+
+.resume-paragraph {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Timeline elements */
+.timeline-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid var(--border-color);
+  margin-bottom: 15px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timeline-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.timeline-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.timeline-details {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.timeline-details li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* Download Resume Button Wrapper */
+.resume-download-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-download-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 38px;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(253, 111, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .resume-card-container {
+    flex-direction: column;
+  }
+
+  .resume-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .resume-main-content {
+    padding: 30px 20px;
+  }
+}
+
+/* Print Styles for PDF export */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .main-website-wrapper, .resume-workspace-navbar, .resume-download-wrapper, .screen-transition-overlay {
+    display: none !important;
+  }
+
+  .resume-workspace {
+    display: flex !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .resume-card-container {
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .resume-sidebar {
+    background-color: #f4f4f4 !important;
+    color: #000000 !important;
+  }
+
+  .candidate-fullname, .block-heading h2, .side-block-title, .timeline-title {
+    color: #000000 !important;
+  }
+
+  .resume-paragraph, .resume-contact-list li, .resume-bullet-list li, .timeline-details li, .timeline-sub {
+    color: #333333 !important;
+  }
+}
+
+/* Universal Active Highlighting for the Resume Link */
+a[href="#resume"].active,
+.resume-workspace-navbar a[href="#resume"],
+.resume-workspace-navbar a.active {
+  color: var(--accent-color) !important;
+}

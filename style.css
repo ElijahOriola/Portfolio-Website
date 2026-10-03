@@ -1,0 +1,395 @@
+/* ==========================================================================
+   Custom Scrollbar Styling
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--bg-color);
+}
+
+/* ==========================================================================
+   CUSTOMIZE MANAGEMENT ROOT
+   ========================================================================== */
+:root {
+  /* --- 📷 Profile Picture Management --- */
+  --img-path: url('Oriola.png');
+  --img-width: 520px;
+  --img-height: 760px;
+  --img-pos-x: 0px;
+  --img-pos-y: 40px;
+  
+  /* --- ⭕ Backdrop Circle Settings --- */
+  --circle-size: 620px;
+  --circle-bg: #1A1A1A;
+  --circle-pos-x: 0px;
+  --circle-pos-y: 0px;
+
+  /* --- 🌌 Parallax Background & Overlay Settings --- */
+  --hero-bg-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1920'); /* Replace with your background image URL */
+  --hero-dim-opacity: 0.7;          /* Controls dim depth: 0.0 (transparent) to 1.0 (black) */
+  --bottom-shadow-height: 120px;    /* Height of the gradient transition line at bottom of home */
+
+  /* --- 🎨 Theme Colors & Styles --- */
+  --bg-color: #0E0E0E;
+  --card-bg: #161616;
+  --accent-color: #FD6F00;
+  --accent-hover: #E06200;
+  --text-main: #FFFFFF;
+  --text-muted: #9E9E9E;
+  --border-color: #333333;
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+/* Header & Nav */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+}
+
+.logo-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(253, 111, 0, 0.15);
+}
+
+.logo-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-tabs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-tabs a:hover,
+.nav-tabs a.active {
+  color: var(--accent-color);
+}
+
+.nav-tabs a.active {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ==========================================================================
+   Hero Section with Parallax Background & Shadow Gradient
+   ========================================================================== */
+.hero-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 8% 60px 8%;
+  min-height: calc(100vh - 80px);
+  background-image: var(--hero-bg-image);
+  background-attachment: fixed; /* Creates the Parallax effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Dim Layer Overlay */
+.hero-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--hero-dim-opacity));
+  z-index: 1;
+}
+
+/* Bottom Shadow Gradient Line */
+.hero-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bottom-shadow-height);
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0) 0%, var(--bg-color) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 500px;
+  z-index: 3;
+}
+
+.greeting {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  line-height: 1.2;
+  margin-bottom: 25px;
+  height: 1.2em;
+  white-space: nowrap;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 0.1em;
+  height: 0.9em;
+  margin-left: 0.08em;
+  background-color: currentColor;
+  vertical-align: -0.08em;
+  animation: typing-cursor-blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes typing-cursor-blink {
+  to { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor {
+    animation: none;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 45px;
+}
+
+.btn {
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.stats-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 20px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 35px;
+  background-color: var(--border-color);
+  margin: 0 25px;
+}
+
+/* Image Wrapper */
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  z-index: 3;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-backdrop {
+  position: absolute;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background-color: var(--circle-bg);
+  border-radius: 50%;
+  transform: translate(var(--circle-pos-x), var(--circle-pos-y));
+  z-index: 1;
+}
+
+.profile-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-image: var(--img-path);
+  background-size: 80% auto;
+  background-position: center 18%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  transform: translate(var(--img-pos-x), var(--img-pos-y));
+  transition: filter 0.3s ease;
+}
+
+.profile-image:hover {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .social-icons, .cta-buttons, .stats-card {
+    justify-content: center;
+  }
+
+  .nav-tabs {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+}

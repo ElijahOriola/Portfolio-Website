@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Oriola Olaoluwa</title>
+  <link rel="icon" type="image/png" href="Oriola-favicon.png">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="services.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="resume.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="setting.css">
+  <link rel="stylesheet" href="chat.css"> <!-- New Chat CSS -->
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Full Screen Fade Transition Overlay -->
+  <div class="screen-transition-overlay" id="screenTransitionOverlay"></div>
+
+  <!-- MAIN WEBSITE WRAPPER (Home, Services, About, Portfolio, Contact) -->
+  <div class="main-website-wrapper" id="mainWebsiteWrapper">
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="logo" aria-label="Oriola profile logo">
+        <img src="Oriola.png" alt="Oriola profile" class="logo-avatar">
+        <span class="logo-name">Oriola</span>
+      </div>
+      <nav class="nav-tabs">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="#resume" id="navResumeLink">Resume</a>
+        <a href="#chatspace" id="navChatLink">Chat</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-container" id="home">
+      <div class="hero-content">
+        <p class="greeting">Hi, I am</p>
+        <h2 class="name">Oriola Olaoluwa</h2>
+        <h1 class="title" aria-label="IT Student, Tech Specialist">
+          <span id="heroTitleText" aria-hidden="true">IT Student</span><span class="typing-cursor" aria-hidden="true"></span>
+        </h1>
+
+        <div class="social-icons">
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="TikTok">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 448 512">
+              <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.39V416A192 192 0 1 1 90 224.08V352a64 64 0 1 0 64 64V96h128a128.16 128.16 0 0 0 128 128z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Envelope"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="cta-buttons">
+          <button class="btn btn-primary" id="hireBtn">Hire Me</button>
+          <button class="btn btn-secondary" id="cvBtn">Resume</button>
+        </div>
+
+        <div class="stats-card">
+          <div class="stat-item">
+            <span class="stat-number">2+</span>
+            <span class="stat-label">Years Learning</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Dedication</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="circle-backdrop"></div>
+        <div class="profile-image"></div>
+      </div>
+    </main>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="services-header">
+        <h2 class="services-title">My Services</h2>
+        <p class="services-subtitle">Delivering technical solutions across software development, network infrastructure, data analysis, and cybersecurity.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" data-service="0">
+          <div class="service-icon icon-1"></div>
+          <h3 class="service-card-title">Web Development</h3>
+          <p class="service-card-text">Building modern, responsive, and accessible web applications tailored to user needs.</p>
+        </div>
+        <div class="service-card" data-service="1">
+          <div class="service-icon icon-2"></div>
+          <h3 class="service-card-title">Network & System Admin</h3>
+          <p class="service-card-text">Configuring local networks, server environments, and ensuring reliable connectivity.</p>
+        </div>
+        <div class="service-card" data-service="2">
+          <div class="service-icon icon-3"></div>
+          <h3 class="service-card-title">Database Management</h3>
+          <p class="service-card-text">Designing relational schemas, optimizing SQL queries, and maintaining data integrity.</p>
+        </div>
+        <div class="service-card" data-service="3">
+          <div class="service-icon icon-4"></div>
+          <h3 class="service-card-title">Cybersecurity & Audit</h3>
+          <p class="service-card-text">Conducting security vulnerability assessments and applying protective protocols.</p>
+        </div>
+        <div class="service-card" data-service="4">
+          <div class="service-icon icon-5"></div>
+          <h3 class="service-card-title">Tech Support & Repair</h3>
+          <p class="service-card-text">Diagnosing hardware/software issues and offering troubleshooting assistance.</p>
+        </div>
+        <div class="service-card" data-service="5">
+          <div class="service-icon icon-6"></div>
+          <h3 class="service-card-title">Cloud Solutions</h3>
+          <p class="service-card-text">Deploying applications to cloud platforms and managing scalable virtual resources.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-section" id="about">
+      <div class="about-platform">
+        <div class="about-header">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-subtitle">Information Technology & System Engineering Specialist</p>
+        </div>
+
+        <div class="about-container">
+          <div class="about-image-wrapper">
+            <div class="about-arch-frame">
+              <div class="about-profile-image"></div>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <p class="about-description">
+              An Information Technology student and aspiring system architect, navigating the dynamic landscapes of code, network architecture, and modern software solutions. With dedicated focus on problem-solving, I compose structured applications and maintain resilient digital infrastructure.
+            </p>
+            <p class="about-description">
+              My primary canvas spans full-stack web development, database management, and network security. Each project represents a commitment to writing clean, optimized code, resolving complex bugs, and engineering platforms that elevate user experiences and organizational efficiency.
+            </p>
+
+            <div class="about-action">
+              <a href="#resume" class="about-cv-btn" id="aboutCvBtn">
+                <i class="fas fa-file-alt"></i> Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="skills-indicators-container">
+        <div class="skill-circle-item">
+          <div class="circle-progress" style="--percent: 100;">
+            <div class="circle-inner"><i class="fab fa-figma"></i></div>
+          </div>
+          <span class="skill-percent">100%</span>
+          <span class="skill-name">Figma</span>
+        </div>
+
+        <div class="skill-circle-item">
+          <div class="circle-progress" style="--percent: 100;">
+            <div class="circle-inner"><span class="skill-text-icon">Xd</span></div>
+          </div>
+          <span class="skill-percent">100%</span>
+          <span class="skill-name">Adobe XD</span>
+        </div>
+
+        <div class="skill-circle-item">
+          <div class="circle-progress" style="--percent: 85;">
+            <div class="circle-inner"><span class="skill-text-icon">Ps</span></div>
+          </div>
+          <span class="skill-percent">85%</span>
+          <span class="skill-name">Adobe Photoshop</span>
+        </div>
+
+        <div class="skill-circle-item">
+          <div class="circle-progress" style="--percent: 60;">
+            <div class="circle-inner"><span class="skill-text-icon">Ai</span></div>
+          </div>
+          <span class="skill-percent">60%</span>
+          <span class="skill-name">Adobe Illustrator</span>
+        </div>
+
+        <div class="skill-circle-item">
+          <div class="circle-progress" style="--percent: 70;">
+            <div class="circle-inner"><span class="skill-text-icon">Pr</span></div>
+          </div>
+          <span class="skill-percent">70%</span>
+          <span class="skill-name">Adobe Premiere</span>
+        </div>
+      </div>
+
+      <div class="portfolio-section-heading">
+        <img class="portfolio-profile-image" src="Oriola.png" alt="Oriola Olaoluwa">
+        <h2 class="portfolio-title">Portfolio</h2>
+      </div>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Website Design</button>
+        <button class="filter-btn" data-filter="mobile">App Mobile Design</button>
+        <button class="filter-btn" data-filter="desktop">App Desktop</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+      </div>
+
+      <div class="portfolio-scroll-viewport">
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- Generated by portfolio.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-header">
+        <h2 class="contact-title">Contact me</h2>
+        <p class="contact-subtitle">Cultivating Connections: Reach Out And Connect With Me</p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="contactName" class="form-control" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="contactEmail" class="form-control" placeholder="Email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" id="contactPhone" class="form-control" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <select id="contactService" class="form-control">
+              <option value="" disabled selected hidden>Service Of Interest</option>
+              <option value="Hire Me">Hire Me (Employment / Full Project)</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Network & System Admin">Network & System Admin</option>
+              <option value="Database Management">Database Management</option>
+              <option value="Cybersecurity & Audit">Cybersecurity & Audit</option>
+              <option value="Tech Support & Repair">Tech Support & Repair</option>
+              <option value="Cloud Solutions">Cloud Solutions</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="contactTimeline" class="form-control" placeholder="Timeline">
+          </div>
+          <div class="form-group">
+            <textarea id="contactDetails" class="form-control" placeholder="Project Details..." required></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit-wrapper">
+          <button type="submit" class="btn-send">Send</button>
+        </div>
+        <p class="contact-submit-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+        <p class="contact-storage-note">This demo saves your message in this browser only. It is not sent to a shared inbox.</p>
+      </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-logo"><img src="Oriola.png" alt="Oriola Olaoluwa"></div>
+      
+      <nav class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact me</a>
+        <a href="#resume">Resume</a>
+        <a href="#chatspace">Chat</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="#" class="footer-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="footer-icon" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+        <a href="#" class="footer-icon" aria-label="Behance"><i class="fab fa-behance"></i></a>
+      </div>
+    </footer>
+  </div> <!-- End Main Website Wrapper -->
+
+  <!-- ISOLATED RESUME WORKSPACE -->
+  <section class="resume-workspace" id="resumeWorkspace">
+    <header class="navbar resume-workspace-navbar">
+      <div class="logo" aria-label="Oriola profile logo">
+        <img src="Oriola.png" alt="Oriola profile" class="logo-avatar">
+        <span class="logo-name">Oriola</span>
+      </div>
+      <nav class="nav-tabs">
+        <a href="#home" class="workspace-nav-link" data-target="home">Home</a>
+        <a href="#services" class="workspace-nav-link" data-target="services">Services</a>
+        <a href="#about" class="workspace-nav-link" data-target="about">About</a>
+        <a href="#portfolio" class="workspace-nav-link" data-target="portfolio">Portfolio</a>
+        <a href="#contact" class="workspace-nav-link" data-target="contact">Contact</a>
+        <a href="#resume" class="active">Resume</a>
+        <a href="#chatspace" class="workspace-nav-link" data-target="chatspace">Chat</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <div class="resume-space-header">
+      <span class="resume-badge">Curriculum Vitae</span>
+      <h2 class="resume-main-title">Professional Resume</h2>
+      <p class="resume-main-subtitle">Full academic details, technical expertise, and career background.</p>
+    </div>
+
+    <div class="resume-card-container" id="resumeCardArea">
+      <!-- Left Sidebar -->
+      <aside class="resume-sidebar">
+        <div class="resume-avatar-wrapper">
+          <div class="resume-avatar-img"></div>
+          <div class="resume-profile-name">Oriola</div>
+        </div>
+
+        <div class="resume-side-block">
+          <h3 class="side-block-title">Contact</h3>
+          <ul class="resume-contact-list">
+            <li><i class="fas fa-phone"></i> 0916 466 6167</li>
+            <li><i class="fas fa-envelope"></i> olaoluwa.oriola@pcu.edu.ph</li>
+            <li><i class="fas fa-map-marker-alt"></i> Manila, Philippines</li>
+            <li><i class="fab fa-github"></i> github.com/oriola-olaoluwa</li>
+            <li><i class="fab fa-linkedin"></i> linkedin.com/in/olaoluwa-oriola</li>
+          </ul>
+        </div>
+
+        <div class="resume-side-block">
+          <h3 class="side-block-title">Skills</h3>
+          <ul class="resume-bullet-list">
+            <li>Full-Stack Web Development</li>
+            <li>Database Design & Optimization</li>
+            <li>Network Admin & Security</li>
+            <li>Cloud Application Deployment</li>
+            <li>UI/UX Prototyping (Figma)</li>
+            <li>System Troubleshooting</li>
+            <li>Git & CI/CD Pipelines</li>
+          </ul>
+        </div>
+
+        <div class="resume-side-block">
+          <h3 class="side-block-title">Languages</h3>
+          <ul class="resume-bullet-list">
+            <li>English (Fluent)</li>
+            <li>Filipino (Conversational)</li>
+          </ul>
+        </div>
+
+        <div class="resume-side-block">
+          <h3 class="side-block-title">Reference</h3>
+          <div class="reference-item">
+            <strong>College of Information Technology</strong>
+            <p>Philippine Christian University (PCU)</p>
+            <p>Email: cit@pcu.edu.ph</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Column -->
+      <main class="resume-main-content">
+        <header class="resume-header-banner">
+          <h1 class="candidate-fullname">OLAOLUWA ELIJAH ORIOLA</h1>
+          <p class="candidate-role">4th Year BSIT Student | Technical Specialist</p>
+        </header>
+
+        <section class="resume-block">
+          <div class="block-heading">
+            <span class="block-icon"><i class="fas fa-user-tie"></i></span>
+            <h2>PROFILE</h2>
+          </div>
+          <p class="resume-paragraph">
+            Ambitious and results-driven 4th-year Bachelor of Science in Information Technology (BSIT) student at Philippine Christian University (PCU). Possesses strong technical foundations in full-stack web engineering, relational database management, network infrastructure, and system administration.
+          </p>
+        </section>
+
+        <section class="resume-block">
+          <div class="block-heading">
+            <span class="block-icon"><i class="fas fa-graduation-cap"></i></span>
+            <h2>EDUCATION</h2>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-title">Bachelor of Science in Information Technology (BSIT)</span>
+              <span class="timeline-date">2021 - Present (4th Year)</span>
+            </div>
+            <p class="timeline-sub">Philippine Christian University (PCU)</p>
+          </div>
+        </section>
+
+        <section class="resume-block">
+          <div class="block-heading">
+            <span class="block-icon"><i class="fas fa-briefcase"></i></span>
+            <h2>EXPERIENCE & PROJECTS</h2>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-title">Lead Full-Stack Developer & Systems Integrator</span>
+              <span class="timeline-date">2023 - Present</span>
+            </div>
+            <p class="timeline-sub">Academic & Personal Capstone Portfolio</p>
+            <p class="timeline-desc">Engineered and deployed multiple web systems and IoT prototypes, incorporating secure databases, responsive UI/UX layouts, and automated cloud workflows.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-title">IT Support & Network Maintenance Specialist</span>
+              <span class="timeline-date">2022 - 2023</span>
+            </div>
+            <p class="timeline-sub">Campus Technical Support</p>
+            <p class="timeline-desc">Provided hardware diagnostics, software troubleshooting, local network maintenance, and user support for academic laboratories.</p>
+          </div>
+        </section>
+
+        <section class="resume-block">
+          <div class="block-heading">
+            <span class="block-icon"><i class="fas fa-certificate"></i></span>
+            <h2>CERTIFICATIONS & TRAINING</h2>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-title">Google Developer Program Member</span>
+              <span class="timeline-date">Active</span>
+            </div>
+            <p class="timeline-sub">Continuous Learning & Developer Tools</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <span class="timeline-title">Full-Stack Web & Database Architecture Training</span>
+              <span class="timeline-date">2023</span>
+            </div>
+            <p class="timeline-sub">Advanced Web Engineering & Cloud Hosting</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="resume-download-wrapper">
+      <button class="btn btn-primary btn-download-resume" id="downloadResumeBtn">
+        <i class="fas fa-download"></i> Download Resume PDF
+      </button>
+    </div>
+  </section>
+
+  <!-- ISOLATED DEDICATED CHAT SPACE (Full Page Workspace with Parallax Background Restored) -->
+  <section class="chat-workspace hero-container" id="chatWorkspace">
+    <header class="navbar chat-workspace-navbar">
+      <div class="logo" aria-label="Oriola profile logo">
+        <img src="Oriola.png" alt="Oriola profile" class="logo-avatar">
+        <span class="logo-name">Oriola</span>
+      </div>
+      <nav class="nav-tabs">
+        <a href="#home" class="workspace-nav-link" data-target="home">Home</a>
+        <a href="#services" class="workspace-nav-link" data-target="services">Services</a>
+        <a href="#about" class="workspace-nav-link" data-target="about">About</a>
+        <a href="#portfolio" class="workspace-nav-link" data-target="portfolio">Portfolio</a>
+        <a href="#contact" class="workspace-nav-link" data-target="contact">Contact</a>
+        <a href="#resume" class="workspace-nav-link" data-target="resume">Resume</a>
+        <a href="#chatspace" class="active">Chat</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <div class="chat-workspace-inner">
+      <div class="chat-space-header">
+        <span class="resume-badge">Interactive AI Assistant</span>
+        <h2 class="resume-main-title">Direct Chat Workspace</h2>
+        <p class="resume-main-subtitle">Have a conversation with Oriola's AI assistant styled just like Messenger.</p>
+      </div>
+
+      <div class="fullscreen-messenger-container">
+        <!-- Chat Header -->
+        <div class="chatbox-header">
+          <div class="chatbox-profile-info">
+            <div class="chatbox-avatar-wrapper">
+              <div class="chatbox-avatar"></div>
+              <span class="online-badge"></span>
+            </div>
+            <div class="chatbox-user-details">
+              <h4>Oriola Chatbox</h4>
+              <span>Active Now • AI Assistant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chatbox-messages" id="fullscreenChatMessages">
+          <div class="chat-message ai">Hi! Welcome to my dedicated chat space. Ask me anything about my BSIT degree at PCU, my projects, or skills!</div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form class="chatbox-input-form" id="fullscreenChatForm">
+          <input type="text" class="chatbox-input" id="fullscreenChatInput" placeholder="Message Oriola's AI..." autocomplete="off">
+          <button type="submit" class="chatbox-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer Section Integrated Inside Chat Workspace -->
+    <footer class="footer chat-workspace-footer">
+      <div class="footer-logo"><img src="Oriola.png" alt="Oriola Olaoluwa"></div>
+      
+      <nav class="footer-nav">
+        <a href="#home" class="workspace-nav-link" data-target="home">Home</a>
+        <a href="#services" class="workspace-nav-link" data-target="services">Services</a>
+        <a href="#about" class="workspace-nav-link" data-target="about">About me</a>
+        <a href="#portfolio" class="workspace-nav-link" data-target="portfolio">Portfolio</a>
+        <a href="#contact" class="workspace-nav-link" data-target="contact">Contact me</a>
+        <a href="#resume" class="workspace-nav-link" data-target="resume">Resume</a>
+        <a href="#chatspace" class="workspace-nav-link" data-target="chatspace">Chat</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="#" class="footer-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="footer-icon" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+        <a href="#" class="footer-icon" aria-label="Behance"><i class="fab fa-behance"></i></a>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Shared Modal Overlay -->
+  <div class="modal-overlay" id="serviceModal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="services.js"></script>
+  <script src="about.js"></script>
+  <script src="portfolio.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="resume.js"></script>
+  <script src="contact.js"></script>
+  <script src="setting.js"></script>
+  <script src="chat.js"></script> <!-- New Chat JS -->
+</body>
+</html>
